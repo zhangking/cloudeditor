@@ -1,0 +1,13 @@
+
+<form name = 'registerForm' class='registerForm'>
+	<h1>sign up</h1>	
+	<div class ='item' >
+		<label for="">username</label>
+		<input type="email" class='form-control' name='username' ng-model = 'user.username' required placeholder='email'>
+	</div>
+	<div class='item'>
+		<label for="">password</label>
+		<input type="password" class='form-control' name='password' ng-model = 'user.password' ng-min='6' ng-maxlength='20' placeholder='password' required>
+	</div>
+	<button class='btn btn-primary' ng-click='doregister(user)' ng-disabled='!registerForm.$valid'>submit</button>
+</form>

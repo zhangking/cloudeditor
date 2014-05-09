@@ -1,0 +1,90 @@
+<div class='opt_bar' >
+	<div class='item' >
+		<a ng-click='save()' class='btn btn-primary btn-embossed' id='save' ng-if='isowner'>save</a>
+		<a ng-click='share()' class='btn btn-primary btn-embossed' id='share' ng-if='!isshare'>share</a>
+		<a ng-click='fork()' class='btn btn-primary btn-embossed' id='fork' 
+		ng-if='!isowner&&!isfork'>fork</a>
+	</div>
+	<div class='item'>
+			
+	</div>
+
+	<div class='item setting'></div>
+	<div class='item'>
+		<label class="radio">
+  			<input type="radio"  value="htmlmixed" name='html' data-toggle="radio" >
+ 		 	html
+		</label>
+	</div>
+	<div class='item'>
+		<label class="radio">
+  			<input type="radio"  value="css" name='css' data-toggle="radio" >
+ 		 	css
+		</label>
+		<label class="radio">
+  			<input type="radio"  value="less" name='css' data-toggle="radio">
+ 		 	less
+		</label>
+	</div>
+	<div class='item'>
+		<label class="radio">
+  			<input type="radio"  value="javascript" name='javascript' data-toggle="radio" >
+ 		 	javascript
+		</label>
+	</div>
+	<div class='item setting'></div>
+	<div class='item'>
+		<a class='btn btn-primary' ng-click='auto()' id='auto'>auto</a>
+	</div>
+	<div class='item setting'></div>
+	<div class='item'>
+		<label class="radio">
+  			<input type="radio"  value="default" ng-model='theme' name='theme' data-toggle="radio" checked>
+ 		 	default
+		</label>
+		<label class="radio">
+  			<input type="radio"  value="monokai" ng-model='theme' name='theme' data-toggle="radio" >
+ 		 	monokai
+		</label>
+	</div>
+	<div class='item setting'></div>
+	<div class='item'>
+		<label class="radio">
+  			<input type="radio"  value="sublime" ng-model='keymap' name='keymap' data-toggle="radio" checked>
+ 		 	sublime
+		</label>
+		<label class="radio">
+  			<input type="radio"  value="vim" ng-model='keymap' name='keymap' data-toggle="radio" >
+ 		 	vim
+		</label>
+	</div>
+	<div class='arrow fui-arrow-right'>
+	</div>
+</div>
+<div class='box_container'>
+	<input type="hidden" ng-model='theme'>
+	<div class='boxs'>
+		<div class='opt_change'>
+		<div class='box_html select'>HTML</div>
+		<div class='box_css'>CSS</div>
+		<div class='box_js'>JS</div>
+		</div>
+		<a ng-click='run()' class='btn btn-primary run' ng-show='!autorun'>run</a>
+		<div class='box box_html'>
+			<input type="hidden" ng-model='codemode.html'>
+			<textarea name="" id="html" ></textarea>
+		</div>
+		<div class='box box_css hide'>
+			<input type="hidden" ng-model='codemode.css'>
+			<textarea name="" id="css" ></textarea>
+		</div>
+		<div class='box box_js hide'>
+			<input type="hidden" ng-model='codemode.js'>
+			<textarea name="" id="js" ></textarea>
+		</div>
+	</div>
+	<div class='result_box'>
+		<iframe  frameborder="0" ></iframe>
+	</div>
+</div>
+

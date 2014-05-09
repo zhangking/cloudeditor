@@ -1,0 +1,44 @@
+<div class='list_boxs'>
+	<div class='box' ng-repeat='code in codes'>
+		<iframe ng-src="{{code.i_url}}" frameborder="0" id='{{code._id}}' class="hide"></iframe>
+		<div class='mask'>
+			<div class='intro'>
+				{{code.owner}}
+			</div>
+			<div class="btn-toolbar">
+                <div class="btn-group">
+                  <a class="btn" ng-href="{{code.c_url}}"><span class="fui-eye"></span></a>
+                  <!-- <a class="btn" ><span class="fui-chat"></span></a> -->
+                  <a class="btn" ng-if ='code.islike'><span class="fui-heart red"></span><span class='red'>{{code.like}}</span></a>
+                  <a class="btn" ng-click="like(code._id)" ng-if ='!code.islike'><span class="fui-heart"></span><span>{{code.like}}</span></a>
+
+                  <a class="btn red" ng-if='code.isfork||code.isowner'><span class="fui-plus red"></span><span class='red'>{{code.fork}}</span></a>
+                  <a class="btn" ng-click="fork(code._id)" ng-if='!code.isfork&&!code.isowner'><span class="fui-plus"></span><span>{{code.fork}}</span></a>
+                </div>
+              </div>
+		</div>
+	</div>
+</div>
+
+
+<div class='page_con'>
+<div class="pagination">
+  <ul>
+    <li class="previous">
+      <a class="fui-arrow-left" ng-click='prev()'></a>
+    </li>
+
+    <li ng-repeat='page in pages' ng-if='currpage==page.index' class='active'>
+      <a>{{page.index}}</a>
+    </li>
+    <li ng-repeat='page in pages' ng-if='currpage!=page.index' >
+      <a ng-click='go(page.index)' >{{page.index}}</a>
+    </li>
+
+    <li class="next">
+      <a class="fui-arrow-right" ng-click='next'></a>
+    </li>
+
+  </ul>
+</div>
+</div>

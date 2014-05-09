@@ -1,0 +1,43 @@
+<div class='header'>
+	<div class="input-group search" ng-show='!iscreate'>                               
+        <input type="text" class="form-control" placeholder="Search" id="search" ng-model='query'>
+                  <span class="input-group-btn">
+                    <button type="submit" class="btn"><span class="fui-search"></span></button>
+                  </span>
+                </div>
+    <a ng-click='tocreate()' class='btn btn-primary'>create</a>
+</div>
+
+<div class='list' ng-show='!iscreate'>
+	<table>
+		<thead>
+		<tr>
+			<td>room</td>
+			<td>owner</td>
+			<td>intro</td>
+			<td>opt</td>
+		</tr>
+		</thead>
+		<tr ng-repeat='room in rooms | filter:query'>
+			<td>{{room.name}}</td>
+			<td>{{room.owner}}</td>
+			<td>{{room.text}}</td>
+			<td><a ng-href="/#/room/{{room._id}}" class='btn btn-inverse'>enter</a></td>
+		</tr>
+	</table>
+</div>
+
+<div class='create' ng-show='iscreate'>
+	<form name = 'roomForm' class='roomForm'>
+	<h1>create a room</h1>	
+	<div class ='item' >
+		<label for="">room name</label>
+		<input type="text" class='form-control' name='name' ng-model = 'room.name' required placeholder='roomname'>
+	</div>
+	<div class ='item' >
+		<label for="">introduce</label>
+		<input type="text" class='form-control' name='text' ng-model = 'room.text' required placeholder='introduce'>
+	</div>
+	<button class='btn btn-primary' ng-click='create(room)' ng-disabled='!roomForm.$valid'>go</button>
+</form>
+</div>
